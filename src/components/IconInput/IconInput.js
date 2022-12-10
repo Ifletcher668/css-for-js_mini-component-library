@@ -4,24 +4,23 @@ import { COLORS } from "../../constants";
 import Icon from "../Icon";
 import VisuallyHidden from "../VisuallyHidden";
 
+const styles = {
+  small: {
+    iconStrokeWidth: 1,
+    iconSize: 14,
+    fontSize: `${14 / 16}rem`,
+    border: "1px solid black",
+  },
+  large: {
+    iconStrokeWidth: 2,
+    iconSize: 18,
+    fontSize: `${18 / 16}rem`,
+    border: "2px solid black",
+  },
+};
+
 const IconInput = ({ name, label, icon, width = 250, size, placeholder }) => {
-  const styles = {
-    small: {
-      iconStrokeWidth: 1,
-      iconSize: 14,
-      fontSize: `${14 / 16}rem`,
-      border: "1px solid black",
-    },
-    large: {
-      iconStrokeWidth: 2,
-      iconSize: 18,
-      fontSize: `${18 / 16}rem`,
-      border: "2px solid black",
-    },
-  };
-
   const [shouldMovePlaceholder, setShouldMovePlaceholder] = useState(false);
-
   const placeholderStyles = {
     "--position-top": shouldMovePlaceholder ? "-18px" : "0",
     "--position-left": shouldMovePlaceholder
