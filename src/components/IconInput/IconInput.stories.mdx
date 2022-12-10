@@ -1,5 +1,5 @@
-import { Meta, Story } from '@storybook/addon-docs/blocks';
-import IconInput from './IconInput';
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+import IconInput from "./IconInput";
 
 <Meta
   title="IconInput"
@@ -7,40 +7,83 @@ import IconInput from './IconInput';
   argTypes={{
     placeholder: {
       control: {
-        type: 'text',
+        type: "text",
       },
     },
     icon: {
       control: {
-        type: 'select',
-        options: ['search', 'at-sign'],
+        type: "select",
+        options: ["search", "at-sign"],
       },
     },
     size: {
       control: {
-        type: 'select',
-        options: ['small', 'large'],
+        type: "select",
+        options: ["small", "large"],
       },
     },
     label: {
       control: {
-        type: 'text',
+        type: "text",
       },
     },
   }}
 />
 
-export const Template = (args) => <IconInput {...args} />;
+export const Template = (args) => (
+  <div style={{ display: "grid", gap: "2rem" }}>
+    {args.variants.map((variant) => (
+      <div>
+        <p style={{ marginBottom: "1rem" }}>{variant.name}</p>
+        <IconInput {...variant} />
+      </div>
+    ))}
+  </div>
+);
 
 # IconInput
 
 <Story
   name="Default"
   args={{
-    placeholder: 'Search…',
-    label: 'Search',
-    icon: 'search',
-    size: 'small',
+    variants: [
+      {
+        name: "small-search",
+        placeholder: "Search…",
+        label: "Search",
+        icon: "search",
+        size: "small",
+      },
+      {
+        name: "large-search",
+        placeholder: "Search…",
+        label: "Search",
+        icon: "search",
+        size: "large",
+      },
+      {
+        name: "small-email",
+        placeholder: "Enter an email",
+        label: "Enter an email",
+        icon: "at-sign",
+        size: "small",
+      },
+      {
+        name: "large-email",
+        placeholder: "Enter an email",
+        label: "Enter an email",
+        icon: "at-sign",
+        size: "large",
+      },
+      {
+        name: "smaller-width",
+        placeholder: "Enter an email",
+        label: "Enter an email",
+        icon: "at-sign",
+        size: "large",
+        width: 150,
+      },
+    ],
   }}
 >
   {Template.bind({})}
